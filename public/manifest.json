@@ -1,0 +1,17 @@
+{
+  "name": "App Coleta",
+  "short_name": "App Coleta",
+  "start_url": "/index.php",
+  "background_color": "#6777ef",
+  "description": "App de coleta de resíduos recicláveis",
+  "display": "fullscreen",
+  "theme_color": "#6777ef",
+  "icons": [
+    {
+      "src": "./icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
