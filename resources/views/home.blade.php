@@ -1,24 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('header')
+    <x-navbar>
+        <x-slot:header>
+            <x-navbar.header.brand>
+                App Coleta
+            </x-navbar.header.brand>
+            <x-navbar.header.button-menu-mobile />
+        </x-slot:header>
+        <x-slot:body>
+            <x-navbar.body.menu>
+                <x-slot:items>
+                    <x-navbar.body.menu.item>
+                        Home
+                    </x-navbar.body.menu.item>
+                </x-slot:items>
+                <x-slot:buttons>
+                    <x-navbar.body.menu.button>
+                        Login
+                    </x-navbar.body.menu.button>
+                </x-slot:buttons>
+            </x-navbar.body.menu>
+        </x-slot:body>
+    </x-navbar>
+@endsection
 
-    <!-- PWA -->
-    <meta name="theme-color" content="#6777ef" />
-    <link rel="apple-touch-icon" href="{{ asset('icon-512x512.png') }}">
-    <link rel="manifest" href="{{ asset('/manifest.json') }}">
-    <!-- PWA -->
+@section('content')
+    <h1>
+        Conteúdo
+    </h1>
+@endsection
 
-    <title>App Coleta</title>
-</head>
-
-<body>
-    <h1>Olá seja bem vindo ao app coleta</h1>
-
-    <script src="{{ asset('/sw.js') }}"></script>
-</body>
-
-</html>
+@section('scripts')
+    @vite('resources/js/components/blade/navbar/index.js')
+@endsection

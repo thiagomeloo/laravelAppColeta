@@ -20,7 +20,10 @@
 </head>
 
 <body>
+    @yield('header')
+
     @yield('content')
+
     {{-- <script src="{{ asset('/sw.js') }}"></script>
     <script>
         // Initialize the service worker
