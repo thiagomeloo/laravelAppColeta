@@ -20,9 +20,13 @@
 </head>
 
 <body>
-    @yield('header')
+    <header>
+        @yield('header')
+    </header>
 
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 
     {{-- <script src="{{ asset('/sw.js') }}"></script>
     <script>
