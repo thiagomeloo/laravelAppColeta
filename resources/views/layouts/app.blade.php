@@ -12,14 +12,26 @@
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <!-- PWA -->
 
-    @vite('resources/css/app.css')
+    <!-- LIBS CDN - CSS -->
 
+    <!-- Fontawesome Icons -->
+    <script src="https://kit.fontawesome.com/33256b8ce2.js" crossorigin="anonymous"></script>
+    <!-- Fontawesome Icons -->
+
+    <!-- Leaflet -->
+    <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.min.css" rel="stylesheet">
+    <!-- Leaflet -->
+
+    <!-- LIBS CDN - CSS -->
+
+
+    @vite('resources/css/app.css')
     @yield('css')
 
     <title>App Coleta</title>
 </head>
 
-<body>
+<body class="text-base">
     <header>
         @yield('header')
     </header>
@@ -28,21 +40,14 @@
         @yield('content')
     </main>
 
-    {{-- <script src="{{ asset('/sw.js') }}"></script>
-    <script>
-        // Initialize the service worker
-                if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js', {
-                scope: '.'
-                }).then(function (registration) {
-                // Registration was successful
-                console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
-                }, function (err) {
-                // registration failed :(
-                console.log('Laravel PWA: ServiceWorker registration failed: ', err);
-                });
-                }
-    </script> --}}
+    <!-- LIBS CDN - JS -->
+
+    <!-- Leaflet -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.min.js"></script>
+    <!-- Leaflet -->
+
+    <!-- LIBS CDN - JS -->
+
     @yield('scripts')
 </body>
 
