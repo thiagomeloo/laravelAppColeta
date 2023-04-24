@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('location_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('type_material_id')->constrained('types_materials')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('status_event_id')->constrained('status_events')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('title');
+            $table->text('description');
+            $table->string('frequency');
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

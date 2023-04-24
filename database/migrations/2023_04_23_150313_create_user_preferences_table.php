@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_preferences', function (Blueprint $table) {
+        Schema::create('users_preferences', function (Blueprint $table) {
             $table->id();
-            $table->timestampsTz();
+            $table->string('public_profile');
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_preferences');
+        Schema::dropIfExists('users_preferences');
     }
 };

@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_interaction_responses', function (Blueprint $table) {
+        Schema::create('events_interactions_responses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('event_interaction_id')->constrained('events_interactions');
+            $table->foreignId('user_id')->constrained('users');
+            $table->text('text');
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_interaction_responses');
+        Schema::dropIfExists('events_interactions_responses');
     }
 };

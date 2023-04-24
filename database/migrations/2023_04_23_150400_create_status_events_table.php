@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('status_events', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

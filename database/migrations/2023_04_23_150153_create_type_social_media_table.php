@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('type_social_media', function (Blueprint $table) {
+        Schema::create('types_social_medias', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->softDeletes();
             $table->timestampsTz();
         });
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('type_social_media');
+        Schema::dropIfExists('types_social_medias');
     }
 };
