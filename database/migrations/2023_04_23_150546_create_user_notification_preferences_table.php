@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_notification_preferences', function (Blueprint $table) {
+        Schema::create('users_notifications_preferences', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('location_id')->constrained(table:'locations', indexName:'u_np_idlocation_foreign')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->float('raio_location')->nullable();
+            $table->boolean('accept_notification')->default(false);
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_notification_preferences');
+        Schema::dropIfExists('users_notifications_preferences');
     }
 };

@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_notification_preference_material_types', function (Blueprint $table) {
+        Schema::create('users_notifications_preferences_materials_types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('notification_preference_id')->constrained(table:'users_notifications_preferences',indexName:'u_np_mt_idu_foreign')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('type_material_id')->constrained(table:'types_materials',indexName:'u_np_mt_idmt_foreign')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_notification_preference_material_types');
+        Schema::dropIfExists('users_notifications_preferences_materials_types');
     }
 };
