@@ -13,4 +13,8 @@ class TypeAction extends Model
 
     protected $table = "types_actions";
     protected $fillable = ["name"];
+
+    protected $casts = [
+        'name' => 'string',
+    ];
 }

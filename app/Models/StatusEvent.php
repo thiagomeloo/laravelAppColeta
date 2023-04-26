@@ -13,4 +13,13 @@ class StatusEvent extends Model
 
     protected $table = "status_events";
     protected $fillable = ["name"];
+
+    protected $casts = [
+        'name' => 'string',
+    ];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

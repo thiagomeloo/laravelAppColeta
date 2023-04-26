@@ -13,4 +13,13 @@ class TypeSocialMedia extends Model
 
     protected $table = "types_social_medias";
     protected $fillable = ["name"];
+
+    protected $casts = [
+        'name' => 'string',
+    ];
+
+    public function usersSocialMedias()
+    {
+        return $this->hasMany(UserSocialMedia::class);
+    }
 }
