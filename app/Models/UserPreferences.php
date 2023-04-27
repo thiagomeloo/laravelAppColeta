@@ -13,4 +13,8 @@ class UserPreferences extends Model
 
     protected $table = "users_preferences";
     protected $fillable = ["public_profile"];
+
+    protected $casts = [
+        'public_profile' => 'string',
+    ];
 }

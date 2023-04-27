@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('users_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('location_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('location_id')->constrained('locations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('address');
             $table->string('city');
             $table->string('state');
-            $table->string('zipcode');
+            $table->integer('zipcode');
             $table->timestampsTz();
             $table->softDeletes();
         });
