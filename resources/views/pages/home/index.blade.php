@@ -31,7 +31,7 @@
         <div class="container px-5 py-12 mx-auto">
             <div class="text-center mb-20">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Bem Vindo</h1>
-                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
+                <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500">
                     Aqui você encontra o lugar mais
                     próximo
                     para o descarte dos seus
@@ -112,41 +112,4 @@
 
     {{-- SCRIPTS DA PÁGINA --}}
     @vite('resources/js/pages/home/index.js')
-    {{-- <script>
-        let latitude = 0;
-        let longitude = 0;
-
-        var map = L.map('mapa').setView([latitude, longitude], 13);
-
-        function getPosition() {
-            return new Promise((resolve, reject) => {
-                if ("geolocation" in navigator) {
-                    navigator.geolocation.getCurrentPosition(resolve, reject);
-                } else {
-                    reject("Geolocalização não suportada pelo navegador.");
-                }
-            });
-        }
-
-        function addMarker(latitude, longitude) {
-            L.marker([latitude, longitude]).addTo(map)
-                .bindPopup('Você está aqui!')
-                .openPopup();
-        }
-
-        getPosition()
-            .then(position => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                addMarker(latitude, longitude);
-                map.setView([latitude, longitude], 13); // mova o mapa para a posição atual com um zoom maior
-            })
-            .catch(error => {
-                console.log(`Erro ao obter a posição: ${error}`);
-            });
-
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-    </script> --}}
 @endsection

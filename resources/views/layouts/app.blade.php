@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="{{ getTheme() == 'dark' ? 'dark' : 'light' }}">
 
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
     <title>App Coleta</title>
 </head>
 
-<body class="text-base">
+<body class="{{ getThemeColors()->background ?? '' }}">
     <header>
         @yield('header')
     </header>
