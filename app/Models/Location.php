@@ -24,4 +24,14 @@ class Location extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function usersNotificationsPreferences(): HasMany
+    {
+        return $this->hasMany(UserNotificationPreference::class);
+    }
+
+    public function usersAddresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
+    }
 }
