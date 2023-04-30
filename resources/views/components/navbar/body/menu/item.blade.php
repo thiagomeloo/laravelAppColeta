@@ -1,4 +1,4 @@
-<a class="text-gray-700 font-semibold hover:text-lime-500 cursor-pointer dark:text-gray-200 dark:hover:text-lime-400 lg:mx-6"
+<a class="font-semibold cursor-pointer lg:mx-6 text-lime-600 hover:text-lime-800 dark:text-lime-400 dark:hover:text-lime-600"
     target="_blank">
     {{ $slot ?? '' }}
 </a>

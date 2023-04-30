@@ -25,13 +25,17 @@
     <!-- LIBS CDN - CSS -->
 
 
-    @vite('resources/css/app.css')
     @yield('css')
+    @vite('resources/css/app.css')
 
-    <title>App Coleta</title>
+    @if (View::hasSection('title'))
+        <title>App Coleta - @yield('title')</title>
+    @else
+        <title>App Coleta</title>
+    @endif
 </head>
 
-<body class="{{ getThemeColors()->background ?? '' }}">
+<body class="bg-gray-200 dark:bg-gray-900">
     <header>
         @yield('header')
     </header>

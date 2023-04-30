@@ -14,11 +14,11 @@ class ThemeHelper {
       'primary' => [
         'color' => '',
         'text' => 'text-lime-600 hover:text-lime-800',
-        'link' => 'text-lime-600 hover:text-lime-800 hover:underline',
+        'link' => 'text-lime-600 hover:text-lime-800 dark:text-lime-400 dark:hover:text-lime-600',
         'textNeutral' => 'text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-500',
-        'button' => 'bg-lime-600 hover:bg-lime-700 text-white transition duration-300 ease-in-out',
+        'button' => 'bg-lime-600 hover:bg-lime-800 dark:bg-lime-300 dark:hover:text-lime-500 text-white transition duration-300 ease-in-out',
       ],
-      'background' => 'bg-slate-300 dark:bg-gray-900',
+      'background' => 'bg-gray-200 dark:bg-gray-900',
       'backgroundSecondary' => 'bg-slate-400 dark:bg-gray-900',
   ];
 

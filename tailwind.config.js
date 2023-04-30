@@ -7,12 +7,6 @@ module.exports = {
     "./resources/**/*.vue",
     "./public/*.html",
   ],
-  variants: {
-    extend: {
-      backgroundColor: ['active', 'hover'],
-      textColor: ['active', 'hover'],
-    },
-  },
   theme: {
     extend: {},
   },

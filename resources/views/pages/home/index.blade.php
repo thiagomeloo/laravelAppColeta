@@ -30,7 +30,8 @@
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-12 mx-auto">
             <div class="text-center mb-20">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Bem Vindo</h1>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-lime-600 dark:text-lime-400">
+                    Bem Vindo</h1>
                 <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500">
                     Aqui você encontra o lugar mais
                     próximo
@@ -45,11 +46,11 @@
             <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-lime-600 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-leaf text-4xl"></i>
                     </div>
                     <div class="flex-grow">
-                        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Coleta</h2>
+                        <h2 class="text-gray-900 dark:text-gray-500 text-lg title-font font-medium mb-3">Coleta</h2>
                         <p class="leading-relaxed text-base">
                             Procure por pessoas dispostas a descartar os resíduos que você deseja reciclar.
                         </p>
@@ -57,11 +58,11 @@
                 </div>
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-lime-600 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-tree-city text-4xl"></i>
                     </div>
                     <div class="flex-grow">
-                        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Descarte</h2>
+                        <h2 class="text-gray-900 dark:text-gray-500 text-lg title-font font-medium mb-3">Descarte</h2>
                         <p class="leading-relaxed text-base">
                             Contribua para a preservação do meio ambiente descartando os resíduos de forma adequada e
                             utilizando os pontos de coleta disponíveis.
@@ -70,11 +71,12 @@
                 </div>
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-lime-600 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-recycle text-4xl"></i>
                     </div>
                     <div class="flex-grow">
-                        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Sustentabilidade</h2>
+                        <h2 class="text-gray-900 dark:text-gray-500 text-lg title-font font-medium mb-3">Sustentabilidade
+                        </h2>
                         <p class="leading-relaxed text-base">
                             Seja parte da mudança positiva que o mundo precisa, adote práticas sustentáveis em sua rotina e
                             contribua para um futuro mais equilibrado e saudável para todos.
@@ -95,7 +97,7 @@
             </div>
 
             <div class="text-center lg:w-2/3 w-full">
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Mapa</h1>
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-500">Mapa</h1>
                 <p class="mb-8 leading-relaxed">
                     Ajude a preservar o meio ambiente localizando os pontos de coleta ou descarte mais próximos de você e
                     faça a diferença na hora de descartar corretamente materiais recicláveis, contribuindo para uma vida
