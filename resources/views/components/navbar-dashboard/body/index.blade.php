@@ -1,7 +1,7 @@
 <div class="flex">
 
     <!-- Barra lateral -->
-    <div class="flex flex-col w-64 lg:w-64 h-screen py-4 bg-gray-200 dark:bg-gray-900" id="sidebar">
+    <div class="flex flex-col w-64 lg:w-64 h-screen py-4 bg-white dark:bg-gray-900" id="sidebar">
         {{ $leftBar ?? '' }}
     </div>
 

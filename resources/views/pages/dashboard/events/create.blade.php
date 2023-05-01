@@ -2,7 +2,5 @@
 
 
 @section('contentDashboard')
-    <h1>Explore</h1>
-
-    <x-new-event.index />
+    <div class="card">a</div>
 @endsection

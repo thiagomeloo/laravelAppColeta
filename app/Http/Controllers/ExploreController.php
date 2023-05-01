@@ -1,5 +1,5 @@
 <?php
-namespace App\Src\Explore\Controllers;
+namespace App\Http\Controllers;
 
 class ExploreController
 {
