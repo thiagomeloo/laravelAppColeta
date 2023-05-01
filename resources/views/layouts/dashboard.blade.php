@@ -21,7 +21,7 @@
                 <x-navbar-dashboard.body.button-menu-mobile />
                 <x-navbar-dashboard.body.menu>
                     <x-navbar-dashboard.body.menu.item text="Mapa" classIcon="fa-solid fa-map" />
-                    <x-navbar-dashboard.body.menu.item text="Explorar" classIcon="fa-solid fa-magnifying-glass" />
+                    <x-navbar-dashboard.body.menu.item url="{{ route('explore.index') }}" text="Explorar" classIcon="fa-solid fa-magnifying-glass" />
                     <x-navbar-dashboard.body.menu.item text="Meus Eventos" classIcon="fa-solid fa-house-flag" />
                 </x-navbar-dashboard.body.menu>
             </x-slot:leftBar>

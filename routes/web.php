@@ -1,5 +1,6 @@
 <?php
 
+use App\Src\Explore\Routes\ExploreRoutes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,10 @@ Route::get('/', function () {
     return view('pages.home.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('layouts.dashboard');
-});
-
-
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', function () {
         return view('pages.dashboard.map.index');
     })->name('dashboard');
+
+    ExploreRoutes::routes();
 });
