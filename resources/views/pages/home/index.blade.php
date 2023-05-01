@@ -16,7 +16,7 @@
                     </x-navbar.body.menu.item>
                 </x-slot:items>
                 <x-slot:buttons>
-                    <x-navbar.body.menu.button>
+                    <x-navbar.body.menu.button href="{{ route('auth.login') }}">
                         Login
                     </x-navbar.body.menu.button>
                 </x-slot:buttons>
@@ -46,7 +46,7 @@
             <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white dark:bg-opacity-50 text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-leaf text-4xl"></i>
                     </div>
                     <div class="flex-grow">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white dark:bg-opacity-50 text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-tree-city text-4xl"></i>
                     </div>
                     <div class="flex-grow">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
                     <div
-                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
+                        class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-white dark:bg-opacity-50 text-lime-600 dark:text-lime-300 mb-5 flex-shrink-0">
                         <i class="fa-solid fa-recycle text-4xl"></i>
                     </div>
                     <div class="flex-grow">
