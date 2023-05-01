@@ -13,11 +13,11 @@ class TypesSocialsMediasSeeder extends Seeder
      */
     public function run(): void
     {
-        // TypeSocialMedia::upsert(
-        //     [
-        //         ["name" => "facebook"],
-        //         ["name" => "google"],
-        //     ], ["name"]
-        // );
+        TypeSocialMedia::upsert(
+            [
+                ["name" => "facebook"],
+                ["name" => "google"],
+            ], ["name"]
+        );
     }
 }
