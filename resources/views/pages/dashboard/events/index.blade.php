@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
 
-@section('content')
+@section('contentDashboard')
     <h1>Events</h1>
 @endsection
