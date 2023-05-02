@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\FrequencyEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,7 +25,7 @@ class Event extends Model
         'status_event_id' => 'integer',
         'title' => 'string',
         'description' => 'string',
-        'frequency' => 'enum:7,15,30',
+        'frequency' => FrequencyEnum::class,
     ];
 
     public function eventInteractions(): HasMany

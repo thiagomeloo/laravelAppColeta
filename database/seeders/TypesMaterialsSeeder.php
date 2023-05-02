@@ -26,7 +26,7 @@ class TypesMaterialsSeeder extends Seeder
                 ["name" => "pilhas"],
                 ["name" => "óleo de cozinha"],
                 ["name" => "remédio e medicamentos"],
-                ["name" => "outro"],
+                ["name" => "outros"],
             ], ["name"]
         );
     }
