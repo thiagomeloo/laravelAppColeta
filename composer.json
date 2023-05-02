@@ -26,10 +26,12 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "App\\Enum\\": "app/Enum",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
+            "app/Helpers/Functions/strings.php",
             "app/Helpers/Functions/theme.php"
         ]
     },
