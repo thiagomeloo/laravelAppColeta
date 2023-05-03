@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\TypeMaterial;
@@ -22,6 +23,6 @@ class EventController
 
         dd($response);
 
-        return redirect()->route('explore.index');
+        return redirect()->route('dashboard.explore.index');
     }
 }

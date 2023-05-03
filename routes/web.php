@@ -3,9 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExploreController;
+use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
 
 /* ------------------------------- ROUTE HOME ------------------------------- */
+
 Route::get('/', function () {
     return view('pages.home.index');
 });
@@ -36,17 +38,22 @@ Route::group(['prefix' => 'auth'], function () {
 /* -------------------------------------------------------------------------- */
 Route::group(['prefix' => 'dashboard'], function () {
 
-    //AGRUPAR AS ROTAS POR CONTROLLERS
-    Route::get('/', function () {
-        return view('pages.dashboard.map.index');
-    })->name('dashboard');
+    /* ----------------------------------- MAP ---------------------------------- */
+    Route::group(["prefix" => "map"], function () {
+        Route::controller(MapController::class)->group(function () {
+            Route::get('/', 'index')->name('dashboard.map.index');
+        });
+    });
 
-    Route::group(["prefix" => "explore"], function() {
-        Route::get("/", [ExploreController::class, 'index'])->name('explore.index');
+    /* --------------------------------- EXPLORE -------------------------------- */
+    Route::group(["prefix" => "explore"], function () {
+        Route::controller(ExploreController::class)->group(function () {
+            Route::get("/", 'index')->name('dashboard.explore.index');
+        });
     });
 });
 
-Route::group(["prefix" => "events"], function() {
+Route::group(["prefix" => "events"], function () {
     Route::get("/novo", [EventController::class, 'create'])->name('events.create');
     Route::post("/publicar", [EventController::class, 'store'])->name('events.store');
 });
