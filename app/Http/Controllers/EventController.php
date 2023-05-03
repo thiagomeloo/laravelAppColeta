@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TypeMaterial;
-use App\Services\CreateEventService;
+use App\Services\Event\CreateEventService;
 use Illuminate\Http\Request;
 
 class EventController

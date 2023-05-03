@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Services\Location;
 
 use App\Models\Location;
 use Illuminate\Support\Facades\DB;

@@ -1,9 +1,10 @@
 <?php
-namespace App\Services;
+namespace App\Services\Event;
 
 use App\Enum\FrequencyEnum;
 use App\Models\Event;
 use App\Models\StatusEvent;
+use App\Services\Location\CreateLocationService;
 use Illuminate\Support\Facades\DB;
 
 class CreateEventService
