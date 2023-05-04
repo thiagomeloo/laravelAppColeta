@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\TypeMaterial;
 use App\Services\Event\CreateEventService;
 use Illuminate\Http\Request;
@@ -23,5 +24,12 @@ class EventController
 
         return response()->json($response);
         return redirect()->route('dashboard.explore.index');
+    }
+
+    public function show(int $id)
+    {
+        $event = Event::with(["owner", "statusEvent", "typeMaterial"])->find($id);
+
+        return view('pages.events.show', compact('event'));
     }
 }
