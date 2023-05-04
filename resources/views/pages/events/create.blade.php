@@ -15,7 +15,7 @@
                     required
                     class="text-2xl md:text-3xl xl:text-4xl font-bold mb-10 w-full text-gray-400 hover:text-black focus:text-black focus:outline-none"
                     >
-                <x-textarea.autoresize
+                <x-form.textarea.autoresize
                     name="description"
                     id="description"
                     placeholder="Digite a descrição do evento..."
@@ -25,7 +25,7 @@
 
                 <div class="w-full md:w-1/2 mb-10">
                     <label for="frequency" class="block font-medium text-gray-700 mb-2">Com que frequência ocorre: (em dias)</label>
-                    <x-select.default
+                    <x-form.select.default
                         id="frequency"
                         name="frequency"
                         required>
@@ -37,21 +37,19 @@
 
                 <div class="w-full md:w-1/2 mb-10">
                     <label for="type_material" class="block font-medium text-gray-700 mb-2">Selecione um material de preferência para o evento:</label>
-                    <x-select.default
+                    <x-form.select.default
                         name="type_material_id"
                         id="type_material_id"
                         required>
                         @foreach ($typesMaterials as $material)
                             @continue($material->name == 'outros')
-                            <div class="flex items-center space-x-2">
-                                <option value="{{ $material->id }}">{{ ucwords($material->name) }}</option>
-                            </div>
+                            <option value="{{ $material->id }}">{{ ucwords($material->name) }}</option>
                         @endforeach
 
-                        @php $outros = $typesMaterials->firstWhere('name', 'outros') @endphp
-                        <div class="flex items-center space-x-2">
-                            <option value="{{ $outros->id }}">{{ ucwords($outros->name) }}</option>
-                        </div>
+                        @php $typeOutros = $typesMaterials->firstWhere('name', 'outros') @endphp
+                        @if($typeOutros)
+                            <option value="{{ $typeOutros->id }}">{{ ucwords($typeOutros->name) }}</option>
+                        @endif
                     </x-select.default>
                 </div>
 

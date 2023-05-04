@@ -53,6 +53,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     });
 });
 
+/* --------------------------------- EVENTS --------------------------------- */
 Route::group(["prefix" => "events"], function () {
     Route::get("/novo", [EventController::class, 'create'])->name('events.create');
     Route::post("/publicar", [EventController::class, 'store'])->name('events.store');

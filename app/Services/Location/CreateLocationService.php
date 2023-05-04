@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateLocationService
 {
-    public static function execute(array $data)
+    public static function execute(array $data): object
     {
         try {
             DB::beginTransaction();
@@ -18,17 +18,23 @@ class CreateLocationService
 
             DB::commit();
 
-            return [
+            return (object) [
                 "status" => true,
                 "data" => $location,
-                "message" => "Localização criada com sucesso!"
+                "message" => (object) [
+                    "type" => "success",
+                    "text" => "Localização criada com sucesso!"
+                ]
             ];
         } catch (\Throwable $th) {
             DB::rollBack();
 
-            return [
+            return (object) [
                 "status" => false,
-                "message" => "Erro ao criar localização!"
+                "message" => (object) [
+                    "type" => "error",
+                    "text" => "Erro ao criar localização!"
+                ]
             ];
         }
     }

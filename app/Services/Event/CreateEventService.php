@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class CreateEventService
 {
 
-    public static function execute(array $data)
+    public static function execute(array $data): object
     {
         try {
             DB::beginTransaction();
@@ -19,9 +19,9 @@ class CreateEventService
                 "latitude" => $data['latitude'],
                 "longitude" => $data['longitude'],
             ]);
-            if(!$responseLocation['status']) throw new \Exception($responseLocation['message']);
+            if(!$responseLocation->status) throw new \Exception($responseLocation->message);
 
-            $location = $responseLocation['data'];
+            $location = $responseLocation->data;
 
             $event = new Event();
             $event->location_id = $location->id;
@@ -35,18 +35,23 @@ class CreateEventService
 
             DB::commit();
 
-            return [
+            return (object) [
                 "status" => true,
                 "data" => $event,
-                "message" => "Evento criado com sucesso!"
+                "message" => (object) [
+                    "type" => "success",
+                    "text" => "Evento criado com sucesso!"
+                ]
             ];
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd($th);
 
-            return [
+            return (object) [
                 "status" => false,
-                "message" => "Erro ao criar evento!"
+                "message" => (object) [
+                    "type" => "error",
+                    "text" => "Erro ao criar evento!"
+                ]
             ];
         }
     }

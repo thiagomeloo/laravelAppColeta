@@ -12,7 +12,7 @@ class EventController
     {
         $typesMaterials = TypeMaterial::all()->sortBy("name");
 
-        return view('pages.dashboard.events.create', compact('typesMaterials'));
+        return view('pages.events.create', compact('typesMaterials'));
     }
 
     public function store(Request $request)
@@ -21,8 +21,7 @@ class EventController
         $data['owner_id'] = auth()->user()?->id ?? 1;
         $response = CreateEventService::execute($data);
 
-        dd($response);
-
+        return response()->json($response);
         return redirect()->route('dashboard.explore.index');
     }
 }
