@@ -4,9 +4,11 @@
 @section('contentDashboard')
     <x-card>
         <div>
-            <a href="#" class="float-right bg-lime-600 hover:bg-lime-800 dark:bg-lime-300 dark:hover:text-lime-500 text-white dark:text-gray-900 transition duration-300 ease-in-out px-3 py-2 rounded-md text-sm font-medium">
-                Editar
-            </a>
+            @can('update', $event)
+                <a href="#" class="float-right bg-lime-600 hover:bg-lime-800 dark:bg-lime-300 dark:hover:text-lime-500 text-white dark:text-gray-900 transition duration-300 ease-in-out px-3 py-2 rounded-md text-sm font-medium">
+                    Editar
+                </a>
+            @endcan
 
             <div class="mb-10 w-full">
                 <span
