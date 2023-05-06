@@ -17,4 +17,15 @@ enum FrequencyEnum: int
             str_contains($caseName, 'MONTHLY') => self::MONTHLY,
         };
     }
+
+    public static function getKey($caseValue): string
+    {
+        dd($caseValue);
+        return match($caseValue) {
+            self::DAILY->value => 'DAILY',
+            self::WEEKLY->value => 'WEEKLY',
+            self::BIWEEKLY->value => 'BIWEEKLY',
+            self::MONTHLY->value => 'MONTHLY',
+        };
+    }
 }

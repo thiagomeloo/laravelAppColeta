@@ -19,7 +19,7 @@ class CreateEventService
                 "latitude" => $data['latitude'],
                 "longitude" => $data['longitude'],
             ]);
-            if(!$responseLocation->status) throw new \Exception($responseLocation->message);
+            if(!$responseLocation->status) throw new \Exception($responseLocation->message->text);
 
             $location = $responseLocation->data;
 

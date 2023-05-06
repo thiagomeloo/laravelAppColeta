@@ -57,5 +57,10 @@ Route::group(['prefix' => 'dashboard'], function () {
 Route::group(["prefix" => "events"], function () {
     Route::get("/new", [EventController::class, 'create'])->name('events.create');
     Route::post("/publish", [EventController::class, 'store'])->name('events.store');
-    Route::get("/view/{id}", [EventController::class, 'show'])->name('events.show');
+    Route::get("/view/{event}", [EventController::class, 'show'])->name('events.show');
+
+    Route::middleware('can:update,event')->group(function() {
+        Route::get("/edit/{event}", [EventController::class, 'edit'])->name('events.edit');
+        Route::put("/update/{event}", [EventController::class, 'update'])->name('events.update');
+    });
 });

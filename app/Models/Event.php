@@ -28,11 +28,12 @@ class Event extends Model
         'frequency' => FrequencyEnum::class,
     ];
 
+    protected $with = ["owner", "statusEvent", "typeMaterial"];
+
     public function eventInteractions(): HasMany
     {
         return $this->hasMany(EventInteraction::class);
     }
-
 
     public function eventInteractionsResponses(): HasManyThrough
     {
