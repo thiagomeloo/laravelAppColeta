@@ -47,7 +47,7 @@ class AuthController extends Controller
                 "content" => json_encode($user)
             ]);
 
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.map.index');
         }
 
         return redirect()->route('auth.login');
