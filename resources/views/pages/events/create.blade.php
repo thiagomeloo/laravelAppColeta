@@ -3,7 +3,7 @@
 
 @section('contentDashboard')
     <x-card>
-        <form action="{{ route('events.store') }}" method="POST">
+        <form action="{{ route('dashboard.events.store') }}" method="POST">
             @csrf
             <div>
                 <input type="text" name="title" id="title" placeholder="Título..." value="{{ old('title') }}" required

@@ -51,10 +51,10 @@ Route::group(['prefix' => 'dashboard'], function () {
             Route::get("/", 'index')->name('dashboard.explore.index');
         });
     });
-});
 
-/* --------------------------------- EVENTS --------------------------------- */
-Route::group(["prefix" => "events"], function () {
-    Route::get("/novo", [EventController::class, 'create'])->name('events.create');
-    Route::post("/publicar", [EventController::class, 'store'])->name('events.store');
+    /* --------------------------------- EVENTS --------------------------------- */
+    Route::group(["prefix" => "events"], function () {
+        Route::get("/novo", [EventController::class, 'create'])->name('dashboard.events.create');
+        Route::post("/publicar", [EventController::class, 'store'])->name('dashboard.events.store');
+    });
 });

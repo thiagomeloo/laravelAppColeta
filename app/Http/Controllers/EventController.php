@@ -12,7 +12,7 @@ class EventController
     {
         $typesMaterials = TypeMaterial::all()->sortBy("name");
 
-        return view('pages.events.create', compact('typesMaterials'));
+        return view('pages.dashboard.events.create', compact('typesMaterials'));
     }
 
     public function store(Request $request)
