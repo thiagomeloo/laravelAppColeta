@@ -5,7 +5,8 @@ namespace App\Services\User;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class CreateUserService {
+class CreateUserService
+{
 
     /**
      * Cria ou atualiza um novo usuario.
@@ -13,10 +14,13 @@ class CreateUserService {
      * @param User $user - Instancia do usuário
      * @return object
      */
-    public static function execute(array $data, User $user = null) : object
+    public static function execute(array $data, User $user = null): object
     {
-
         try {
+
+            if (!$data) {
+                throw new \Exception("Dados não informados!");
+            }
 
             DB::beginTransaction();
 
@@ -37,7 +41,6 @@ class CreateUserService {
                 ],
                 "data" => $userData
             ];
-
         } catch (\Throwable $th) {
 
             DB::rollBack();
@@ -52,6 +55,5 @@ class CreateUserService {
                 ],
             ];
         }
-
     }
 }
