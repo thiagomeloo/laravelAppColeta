@@ -11,7 +11,7 @@ use App\Services\UserSocialMedia\CreateUserSocialMediaService;
 class CreateOrUpdateUserBySocialMediaService
 {
 
-    public static function execute(array $data) : object
+    public static function execute(array $data): object
     {
         try {
 
@@ -20,7 +20,7 @@ class CreateOrUpdateUserBySocialMediaService
 
             $response = CreateUserService::execute($data, $user ?? null);
 
-            if (!$response->status){
+            if (!$response->status) {
                 return $response;
             }
 
@@ -39,7 +39,7 @@ class CreateOrUpdateUserBySocialMediaService
             ], $userSocialMedia ?? null);
 
             //Verifica se ocorreu algum erro ao criar a relação de usuário e rede social
-            if (!$response->status){
+            if (!$response->status) {
                 return $response;
             }
 
@@ -57,12 +57,8 @@ class CreateOrUpdateUserBySocialMediaService
                     "userSocialMedia" => $userSocialMedia
                 ]
             ];
-
-
         } catch (\Throwable $th) {
-
             $textError = $user ? "Erro ao criar o usuário a partir de uma rede social." : "Erro ao atualizar o usuário a partir de uma rede social.";
-            dd($th->getMessage());
             return (object)[
                 "status" => false,
                 "message" => (object)[
