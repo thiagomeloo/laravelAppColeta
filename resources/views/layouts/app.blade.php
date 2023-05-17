@@ -52,7 +52,8 @@
 
     <!-- LIBS CDN - JS -->
 
-    @yield('scripts')
+    @yield('script')
+    @stack('scripts')
 </body>
 
 </html>

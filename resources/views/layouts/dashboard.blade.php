@@ -33,7 +33,8 @@
             </x-slot:content>
         </x-navbar-dashboard.body>
     </x-navbar-dashboard>
-
-    @yield('scripts')
-    @vite('resources/js/components/blade/navbar-dashboard/index.js')
 @endsection
+
+@push('scripts')
+    @vite('resources/js/components/blade/navbar-dashboard/index.js')
+@endpush
