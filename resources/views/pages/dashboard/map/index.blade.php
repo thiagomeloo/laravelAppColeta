@@ -1,5 +1,15 @@
 @extends('layouts.dashboard')
 
+@section('breadcrumbDashboard')
+    <x-navbar-dashboard.body.breadcrumb>
+        <x-navbar-dashboard.body.breadcrumb.item>
+            <i class="fas fa-home"></i>
+        </x-navbar-dashboard.body.breadcrumb.item>
+        <x-navbar-dashboard.body.breadcrumb.item separator>
+            Mapa
+        </x-navbar-dashboard.body.breadcrumb.item>
+    </x-navbar-dashboard.body.breadcrumb>
+@endsection
 
 @section('contentDashboard')
     <div class="grid grid-cols-3 gap-4">
