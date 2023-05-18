@@ -14,7 +14,7 @@ class EventController
     {
         $typesMaterials = TypeMaterial::all()->sortBy("name");
 
-        return view('pages.events.create', compact('typesMaterials'));
+        return view('pages.dashboard.events.create', compact('typesMaterials'));
     }
 
     public function store(Request $request)
@@ -23,24 +23,23 @@ class EventController
         $data['owner_id'] = auth()->user()?->id ?? null;
         $response = CreateEventService::execute($data);
 
-        if($response->status) {
+        if ($response->status) {
             return redirect()->route('dashboard.explore.index');
         } else {
             return redirect()->back()->withInput()->withErrors($response->errors);
         }
-
     }
 
     public function show(Event $event)
     {
-        return view('pages.events.show', compact('event'));
+        return view('pages.dashboard.events.show', compact('event'));
     }
 
     public function edit(Event $event)
     {
         $typesMaterials = TypeMaterial::all()->sortBy("name");
 
-        return view('pages.events.edit', compact('event', 'typesMaterials'));
+        return view('pages.dashboard.events.edit', compact('event', 'typesMaterials'));
     }
 
     public function update(Request $request, Event $event)
@@ -48,8 +47,8 @@ class EventController
         $data = $request->all();
         $response = EditEventService::execute($data, $event);
 
-        if($response->status) {
-            return redirect()->route('events.show', ['event' => $event->id]);
+        if ($response->status) {
+            return redirect()->route('dashboard.events.show', ['event' => $event->id]);
         } else {
             return redirect()->back()->withInput()->withErrors($response->message->text);
         }

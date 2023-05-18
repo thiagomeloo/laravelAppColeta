@@ -51,16 +51,16 @@ Route::group(['prefix' => 'dashboard'], function () {
             Route::get("/", 'index')->name('dashboard.explore.index');
         });
     });
-});
 
-/* --------------------------------- EVENTS --------------------------------- */
-Route::group(["prefix" => "events"], function () {
-    Route::get("/new", [EventController::class, 'create'])->name('events.create');
-    Route::post("/publish", [EventController::class, 'store'])->name('events.store');
-    Route::get("/view/{event}", [EventController::class, 'show'])->name('events.show');
+    /* --------------------------------- EVENTS --------------------------------- */
+    Route::group(["prefix" => "events"], function () {
+        Route::get("/new", [EventController::class, 'create'])->name('dashboard.events.create');
+        Route::post("/publish", [EventController::class, 'store'])->name('dashboard.events.store');
+        Route::get("/view/{event}", [EventController::class, 'show'])->name('dashboard.events.show');
 
-    Route::middleware('can:update,event')->group(function() {
-        Route::get("/edit/{event}", [EventController::class, 'edit'])->name('events.edit');
-        Route::put("/update/{event}", [EventController::class, 'update'])->name('events.update');
+        Route::middleware('can:update,event')->group(function () {
+            Route::get("/edit/{event}", [EventController::class, 'edit'])->name('dashboard.events.edit');
+            Route::put("/update/{event}", [EventController::class, 'update'])->name('dashboard.events.update');
+        });
     });
 });
