@@ -13,12 +13,12 @@
 
 @section('contentDashboard')
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-8 gap-4">
-        @for ($i = 0; $i < 10; $i++)
-            <x-card.event title="Meu Evento" owner="João" typeEvent="Coleta"
-                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        @foreach ($events as $event)
+            <x-card.event linkView="{{ route('dashboard.events.show', ['event' => $event->id]) }}" title="{{ $event->title }}" owner="{{ $event->owner->name }}" typeEvent="Coleta"
+                description="{{ $event->description }}"
                 date="10/10/2021">
             </x-card.event>
-        @endfor
+        @endforeach
     </div>
 
     <x-new-event.index />
