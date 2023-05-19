@@ -28,6 +28,10 @@
                 </x-navbar-dashboard.body.menu>
             </x-slot:leftBar>
 
+            <x-slot:breadcrumb>
+                @yield('breadcrumbDashboard')
+            </x-slot:breadcrumb>
+
             <x-slot:content>
                 @yield('contentDashboard')
             </x-slot:content>
