@@ -32,6 +32,13 @@ class EventController
 
     public function show(Event $event)
     {
+        $event->load([
+            'eventInteractions' => [
+                'user',
+                'eventInteractionsResponses.user'
+            ]
+        ]);
+
         return view('pages.dashboard.events.show', compact('event'));
     }
 

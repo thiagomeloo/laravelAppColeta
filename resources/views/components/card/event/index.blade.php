@@ -8,7 +8,7 @@
             <span class="text-xs font-medium text-lime-600 uppercase dark:text-lime-400">
                 {{ $typeEvent ?? '' }}
             </span>
-            <a href="#"
+            <a href="{{ $linkView }}"
                 class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
                 tabindex="0" role="link">
                 {{ $title ?? '' }}

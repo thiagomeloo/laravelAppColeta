@@ -3,7 +3,7 @@
         <h2 class="text-xl font-bold mb-4">{{ $title }}</h2>
     @endisset
 
-    <div class="w-full max-h-screen h-full overflow-auto {{ $classBody ?? '' }}">
+    <div class="w-full h-auto overflow-auto {{ $classBody ?? '' }}">
         {{ $slot ?? '' }}
     </div>
 </div>

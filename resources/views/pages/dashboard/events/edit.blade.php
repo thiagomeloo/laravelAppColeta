@@ -66,6 +66,6 @@
     </x-card>
 @endsection
 
-@section('scripts')
+@push('scripts')
     @stack('scripts-form-textarea-autoresize')
-@endsection
+@endpush
