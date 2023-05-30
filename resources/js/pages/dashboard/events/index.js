@@ -1,6 +1,7 @@
 import { FindLocationByAddress, FindLocationByCep } from "../../../components/scripts/map/findLocation";
 import { LeafletMapComponent } from "../../../components/scripts/map/leaflet";
 import { NavigationPosition } from "../../../components/scripts/map/navigationPosition";
+import { SweetAlertComponent } from "../../../components/scripts/sweetAlert";
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -20,10 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     //botao de buscar endereco
     const searchAddressButton = document.getElementById('searchAddressButton')
-
-    //inputs de latitude e longitude
-    const inputLatitude = document.getElementById('latitude')
-    const inputLongitude = document.getElementById('longitude')
 
 
     //botao de buscar endereco
@@ -46,41 +43,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         //verifica se o valor digitado é um cep
         if (checkIsCep(value)) {
 
-            FindLocationByCep(value).then(data => {
-                if (data.length > 0) {
+            FindLocationByCep(value)
+                .then(data => {
+                    if (data.length > 0) {
 
-                    const { lat, lon } = data[0];
+                        SweetAlertComponent().basic.success('Encontrado', 'Endereço encontrado com sucesso!');
 
-                    if (lat == null || lon == null) return;
+                        const { lat, lon } = data[0];
 
-                    //att os campos de latitude e longitude
-                    inputLatitude.value = lat;
-                    inputLongitude.value = lon;
+                        if (lat == null || lon == null) return;
 
-                    map.addMarker({
-                        lat: lat,
-                        lng: lon,
-                        popup: 'Arraste para o local desejado caso haja inconsistência.',
-                        iconClass: 'fa-solid fa-location-dot fa-2x text-blue-700',
-                        popupOpen: true,
-                        draggable: true,
-                        callbackDraggable: (e) => {
+                        //add marcador
+                        addMarker(map, lat, lon);
 
-                            const { lat, lng } = e.target._latlng;
-                            if (lat == null || lng == null) return;
-
-                            //att os campos de latitude e longitude
-                            inputLatitude.value = lat;
-                            inputLongitude.value = lon;
-
-                        },
-                        size: [35, 35]
-                    });
-                }
-            })
+                    } else {
+                        SweetAlertComponent().basic.error('Ops!', 'Não foi possível encontrar o endereço.');
+                    }
+                })
+                .catch(err => {
+                    SweetAlertComponent().basic.error('Ops!', 'Erro ao buscar endereço.');
+                });
         } else {
+
             const arr = value.split(',');
-            if (arr.length < 4) return;
+
+            if (arr.length < 4) {
+                SweetAlertComponent().basic.error('Ops!', 'O endereço deve seguir o seguinte formato: Rua, Número, Cidade, Estado ou CEP (apenas números)');
+                return;
+            }
+
             const address = {
                 rua: arr[0] ?? '',
                 numero: arr[1] ?? '',
@@ -88,9 +79,25 @@ document.addEventListener('DOMContentLoaded', async () => {
                 estado: arr[3] ?? '',
             }
 
-            FindLocationByAddress(address).then(data => {
-                console.log(data)
-            })
+            FindLocationByAddress(address)
+                .then(data => {
+                    if (data.length > 0) {
+
+                        SweetAlertComponent().basic.success('Encontrado', 'Endereço encontrado com sucesso!');
+
+                        const lat = data[0]?.lat ?? null;
+                        const lon = data[0]?.lon ?? null;
+
+                        if (lat == null || lon == null) return;
+
+                        //add marcador
+                        addMarker(map, lat, lon);
+                    } else {
+                        SweetAlertComponent().basic.error('Ops!', 'Não foi possível encontrar o endereço.');
+                    }
+                }).catch(err => {
+                    SweetAlertComponent().basic.error('Ops!', 'Erro ao buscar endereço.');
+                });
         }
 
     });
@@ -107,4 +114,46 @@ function checkIsCep(str) {
     if (!/^\d+$/.test(str)) return false;
     if (str.length != 8) return false;
     return true;
+}
+
+/**
+ * Adiciona o marcador de localização no mapa.
+ *
+ * @param {*} map instancia do mapa
+ * @param {*} lat latitude
+ * @param {*} lon longitude
+ */
+function addMarker(map, lat, lon) {
+
+    //inputs de latitude e longitude
+    const inputLatitude = document.getElementById('latitude')
+    const inputLongitude = document.getElementById('longitude')
+
+    inputLatitude.value = lat;
+    inputLongitude.value = lon;
+
+    map.addMarker({
+        lat: lat,
+        lng: lon,
+        popup: 'Arraste e solte no local desejado caso haja inconsistência.',
+        iconClass: 'fa-solid fa-location-dot fa-2x text-blue-700',
+        popupOpen: true,
+        draggable: true,
+        callbackDraggable: (e) => {
+
+            const { lat, lng } = e.target._latlng;
+            if (lat == null || lng == null) return;
+
+            //att os campos de latitude e longitude
+            inputLatitude.value = lat;
+            inputLongitude.value = lon;
+
+        },
+        size: [35, 35]
+    });
+
+
+    //centraliza o mapa na localização
+    map.setView(lat, lon);
+
 }

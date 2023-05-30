@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\TypeAction;
 use App\Models\TypeMaterial;
 use App\Services\Event\CreateEventService;
 use App\Services\Event\EditEventService;
@@ -13,13 +14,15 @@ class EventController
     public function create()
     {
         $typesMaterials = TypeMaterial::all()->sortBy("name");
+        $typesActions = TypeAction::all()->sortBy("name");
 
-        return view('pages.dashboard.events.create', compact('typesMaterials'));
+        return view('pages.dashboard.events.create', compact('typesMaterials', 'typesActions'));
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
+
         $data['owner_id'] = auth()->user()?->id ?? null;
         $response = CreateEventService::execute($data);
 

@@ -14,9 +14,10 @@
 @section('contentDashboard')
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-8 gap-4">
         @foreach ($events as $event)
-            <x-card.event linkView="{{ route('dashboard.events.show', ['event' => $event->id]) }}" title="{{ $event->title }}" owner="{{ $event->owner->name }}" typeEvent="Coleta"
-                description="{{ $event->description }}"
-                date="10/10/2021">
+            <x-card.event linkView="{{ route('dashboard.events.show', ['event' => $event->id]) }}" title="{{ $event->title }}"
+                owner="{{ $event->owner->name . '-' . $event->location->latitude . '-' . $event->location->longitude }}"
+                typeEvent="{{ $event->typeAction->name }}" description="{{ $event->description }}"
+                latitude="{{ $event->location->latitude }}" longitude="{{ $event->location->longitude }}" date="">
             </x-card.event>
         @endforeach
     </div>

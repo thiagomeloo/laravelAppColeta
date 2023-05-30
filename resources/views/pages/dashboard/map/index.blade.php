@@ -45,6 +45,7 @@
             <x-map width="w-full" height="h-4/5" id="map" />
         </x-card>
     </div>
+    <x-new-event.index />
 @endsection
 
 @push('scripts')

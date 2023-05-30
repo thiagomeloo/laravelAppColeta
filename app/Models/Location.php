@@ -15,11 +15,6 @@ class Location extends Model
     protected $table = "locations";
     protected $fillable = ["latitude", "longitude"];
 
-    protected $casts = [
-        'latitude' => 'float',
-        'longitude' => 'float',
-    ];
-
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);

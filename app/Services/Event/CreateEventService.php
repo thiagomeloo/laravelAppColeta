@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Event;
 
 use App\Enum\FrequencyEnum;
@@ -19,7 +20,7 @@ class CreateEventService
                 "latitude" => $data['latitude'],
                 "longitude" => $data['longitude'],
             ]);
-            if(!$responseLocation->status) throw new \Exception($responseLocation->message->text);
+            if (!$responseLocation->status) throw new \Exception($responseLocation->message->text);
 
             $location = $responseLocation->data;
 
@@ -28,6 +29,7 @@ class CreateEventService
             $event->type_material_id = $data["type_material_id"];
             $event->owner_id = $data["owner_id"];
             $event->status_event_id = StatusEvent::firstWhere("name", "pendente")->id;
+            $event->type_action_id = $data["type_action_id"];
             $event->title = $data["title"];
             $event->description = $data["description"];
             $event->frequency = FrequencyEnum::getValue($data["frequency"]);
@@ -44,6 +46,7 @@ class CreateEventService
                 ]
             ];
         } catch (\Throwable $th) {
+            dd($th);
             DB::rollBack();
 
             return (object) [

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('location_id')->constrained('locations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('type_material_id')->constrained('types_materials')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('type_action_id')->constrained('types_actions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('status_event_id')->constrained('status_events')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->text('description');

@@ -139,6 +139,18 @@ export function LeafletMapComponent() {
                 });
             }
             return this;
+        },
+
+        /**
+         * Atualiza a posição do mapa.
+         * @param {*} lat latitude
+         * @param {*} lng longitude
+         * @param {*} zoom zoom
+         * @returns
+        */
+        setView: function (lat, lng, zoom) {
+            privateAttributes.map.setView([lat, lng], zoom);
+            return this;
         }
 
     }
