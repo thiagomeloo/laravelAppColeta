@@ -144,9 +144,8 @@ function addMarker(map, lat, lon) {
             const { lat, lng } = e.target._latlng;
             if (lat == null || lng == null) return;
 
-            //att os campos de latitude e longitude
-            inputLatitude.value = lat;
-            inputLongitude.value = lon;
+            inputLatitude.value = lat.toFixed(6);
+            inputLongitude.value = lng.toFixed(6);
 
         },
         size: [35, 35]
