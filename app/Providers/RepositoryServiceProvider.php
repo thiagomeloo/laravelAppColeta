@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use EloquentORM;
-use Illuminate\Cache\Repository;
+use App\Repositories\EloquentBaseRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -21,6 +20,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->bind(RepositoryInterface::class, EloquentORM::class);
+        $this->app->bind(RepositoryInterface::class, EloquentBaseRepository::class);
     }
 }
