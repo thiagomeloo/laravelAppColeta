@@ -1,0 +1,112 @@
+Views:
+    ☐ Tela de cadastro complementar:
+    ☐ Tela de definir filtro de eventos que deseja receber notificação
+    ☐ Tela de Visualizar Usuário publico
+        ☐ Tela irá se parecer com as telas de perfil de usuario.
+
+
+Backend:
+    ☐ Service para checar se o usuário já existe
+    ☐ Service para gerar notificação de evento
+
+
+Cruds:
+    ☐ Location
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:28)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ Event
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:28)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+
+    ☐ EventInteraction
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:29)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+
+    ☐ EventInteractionResponse
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:30)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ User
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:31)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserAddress
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:32)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserNotification
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:32)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserNotificationEvent
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:33)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserNotificationPreference
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:34)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserNotificationPreferenceTypeMaterial
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:35)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserPreference
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:37)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+    ☐ UserSocialMedia
+        ☐ Model
+        ✔ Repository @done(23-06-01 20:40)
+        ☐ Service
+            ☐ Create
+            ☐ Update
+            ☐ Delete
+            ☐ List
+
