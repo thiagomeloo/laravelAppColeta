@@ -46,9 +46,7 @@ class CreateEventService
                 ]
             ];
         } catch (\Throwable $th) {
-            dd($th);
             DB::rollBack();
-
             return (object) [
                 "status" => false,
                 "message" => (object) [
