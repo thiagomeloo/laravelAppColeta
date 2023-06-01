@@ -24,7 +24,8 @@
                         url="{{ route('dashboard.map.index') }}" />
                     <x-navbar-dashboard.body.menu.item text="Explorar" classIcon="fa-solid fa-magnifying-glass"
                         url="{{ route('dashboard.explore.index') }}" />
-                    <x-navbar-dashboard.body.menu.item text="Meus Eventos" classIcon="fa-solid fa-house-flag" />
+                    <x-navbar-dashboard.body.menu.item text="Meus Eventos" classIcon="fa-solid fa-house-flag"
+                        url="{{ route('dashboard.events.myEvents') }}" />
                 </x-navbar-dashboard.body.menu>
             </x-slot:leftBar>
 
