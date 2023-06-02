@@ -36,7 +36,7 @@ class EventService extends BaseRepositoryService
                 "longitude" => $data['longitude'],
             ]);
 
-        if (!$locationResponse->hasError()) {
+        if ($locationResponse->hasError()) {
             return $locationResponse;
         }
 
