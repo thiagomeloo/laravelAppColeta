@@ -33,10 +33,7 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "files": [
-            "app/Helpers/Functions/strings.php",
-            "app/Helpers/Functions/theme.php"
-        ]
+        "files": []
     },
     "autoload-dev": {
         "psr-4": {
