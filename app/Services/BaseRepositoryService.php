@@ -65,16 +65,10 @@ abstract class BaseRepositoryService
      * @param bool $status
      * @param string $message
      * @param mixed $data
+     * @return ResponseService
      */
-    public static function responseService(bool $status = true, string $message, $data = null)
+    public static function responseService(bool $status, string $message, $data = null)
     {
-        return (object) [
-            "status" => $status,
-            "message" => (object) [
-                "type" => $status ? "success" : "error",
-                "text" => $message
-            ],
-            "data" => $data,
-        ];
+        return ResponseService::make($status, $message, $data);
     }
 }
