@@ -32,9 +32,19 @@ abstract class BaseRepositoryService
     /**
      * Retorna uma instância da classe.
      *
-     * @return self
+     * @return static
      */
-    public function __invoke(): self
+    public function __invoke(): static
+    {
+        return new static();
+    }
+
+    /**
+     * Retorna uma instância da classe.
+     *
+     * @return static
+     */
+    public static function getInstance(): static
     {
         return new static();
     }
@@ -47,5 +57,24 @@ abstract class BaseRepositoryService
     public function getRepository(): RepositoryInterface
     {
         return $this->repository;
+    }
+
+    /**
+     * Retorna uma resposta padrão para os serviços.
+     *
+     * @param bool $status
+     * @param string $message
+     * @param mixed $data
+     */
+    public static function responseService(bool $status = true, string $message, $data = null)
+    {
+        return (object) [
+            "status" => $status,
+            "message" => (object) [
+                "type" => $status ? "success" : "error",
+                "text" => $message
+            ],
+            "data" => $data,
+        ];
     }
 }
