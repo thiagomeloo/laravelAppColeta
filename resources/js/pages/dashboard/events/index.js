@@ -13,7 +13,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         'id': 'map',
         'lat': objMap.latitude ?? latitude ?? '-6.4808',
         'lng': objMap.longitude ?? longitude ?? '-35.4347',
-        'zoom': objMap.zoom ?? '15',
+        'zoom': objMap.zoom ?? 18,
+    });
+
+    //add sua localização atual
+    map.addMarker({
+        lat: latitude ?? '-6.4808',
+        lng: longitude ?? '-35.4347',
+        popup: 'Você está aqui',
+        iconClass: 'fa-solid fa-location-dot fa-2x text-red-700',
+        popupOpen: true,
+        size: [35, 35]
     });
 
     //input de busca endereço

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     maps.forEach((element) => {
         const latitude = element.getAttribute('latitude');
         const longitude = element.getAttribute('longitude');
-        const zoom = 15;
+        const zoom = 18;
         const typeEvent = element.getAttribute('typeEvent') ?? null;
 
         const elMap = LeafletMapComponent().init({
