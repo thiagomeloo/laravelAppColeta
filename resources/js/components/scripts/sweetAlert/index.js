@@ -7,7 +7,7 @@ export function SweetAlertComponent() {
             neutral: function (title, text, icon = null) {
                 const options = {
                     title: title,
-                    text: text,
+                    html: "<div>" + text + "</div>",
                     confirmButtonText: 'Ok'
                 }
 
