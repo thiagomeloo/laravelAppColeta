@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Event\CreateEventRequest;
 use App\Models\Event;
 use App\Models\TypeAction;
 use App\Models\TypeMaterial;
@@ -26,28 +27,9 @@ class EventController
     /**
      * Cria um novo evento.
      */
-    public function store(Request $request, EventService $eventService)
+    public function store(CreateEventRequest $request, EventService $eventService)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'type_material_id' => 'required',
-            'type_action_id' => 'required',
-            'frequency' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
-        ], [
-            'title.required' => 'O campo título é obrigatório.',
-            'description.required' => 'O campo descrição é obrigatório.',
-            'type_material_id.required' => 'O campo tipo de material é obrigatório.',
-            'type_action_id.required' => 'O campo tipo de ação é obrigatório.',
-            'frequency.required' => 'O campo frequência é obrigatório.',
-            'latitude.required' => 'O campo latitude é obrigatório.',
-            'longitude.required' => 'O campo longitude é obrigatório.',
-        ]);
-
-
-        $data = $request->all();
+        $data = $request->validated();
 
         $data['owner_id'] = auth()->user()?->id ?? null;
         $response = $eventService->save($data);
