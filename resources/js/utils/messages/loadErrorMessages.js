@@ -4,9 +4,8 @@ export default function LoadErrorMessages() {
 
     const messages = document.querySelector('meta[name="error-messages"]');
     if (messages == null) return;
-    messages?.remove();
-
     const errorMessages = JSON.parse(messages.content);
+    messages?.remove();
 
     SweetAlertComponent().basic.error("Erro", Array.isArray(errorMessages) ? errorMessages.join('<br>') : errorMessages);
 }
