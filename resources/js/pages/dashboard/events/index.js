@@ -34,8 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     //botao de buscar endereco
-    searchAddressButton?.addEventListener('click', async () => {
+    searchAddressButton?.addEventListener('click', async (event) => {
         const value = searchAddressInput?.value;
+
+        const cardTitle = event.target.closest('[title="Mapa"]');
+        //add pulse no card
+        cardTitle.classList.add('animate-pulse');
 
         //remove todos os marcadores
         map.removeMarkers();
@@ -55,6 +59,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             FindLocationByCep(value)
                 .then(data => {
+
+                    //remove pulse no card
+                    cardTitle.classList.remove('animate-pulse');
+
                     if (data.length > 0) {
 
                         SweetAlertComponent().basic.success('Encontrado', 'Endereço encontrado com sucesso!');
@@ -71,6 +79,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 })
                 .catch(err => {
+                    //remove pulse no card
+                    cardTitle.classList.remove('animate-pulse');
+
                     SweetAlertComponent().basic.error('Ops!', 'Erro ao buscar endereço.');
                 });
         } else {
@@ -78,6 +89,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             const arr = value.split(',');
 
             if (arr.length < 4) {
+                //remove pulse no card
+                cardTitle.classList.remove('animate-pulse');
+
                 SweetAlertComponent().basic.error('Ops!', 'O endereço deve seguir o seguinte formato: Rua, Número, Cidade, Estado ou CEP (apenas números)');
                 return;
             }
@@ -91,6 +105,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             FindLocationByAddress(address)
                 .then(data => {
+
+                    //remove pulse no card
+                    cardTitle.classList.remove('animate-pulse');
+
                     if (data.length > 0) {
 
                         SweetAlertComponent().basic.success('Encontrado', 'Endereço encontrado com sucesso!');
@@ -106,6 +124,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                         SweetAlertComponent().basic.error('Ops!', 'Não foi possível encontrar o endereço.');
                     }
                 }).catch(err => {
+
+                    //remove pulse no card
+                    cardTitle.classList.remove('animate-pulse');
+
                     SweetAlertComponent().basic.error('Ops!', 'Erro ao buscar endereço.');
                 });
         }
