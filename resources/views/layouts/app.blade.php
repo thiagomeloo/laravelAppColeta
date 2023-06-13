@@ -33,6 +33,17 @@
     @else
         <title>App Coleta</title>
     @endif
+
+    {{-- Messagens de error --}}
+    @if (isset($errors) && $errors->any())
+        <meta name="error-messages" content="{{ json_encode($errors->all()) }}">
+    @endif
+
+    {{-- Messagens de sucesso --}}
+    @if (session('success'))
+        <meta name="success-messages" content="{{ json_encode(session()->pull('success')) }}">
+    @endif
+
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900">
@@ -51,6 +62,8 @@
     <!-- Leaflet -->
 
     <!-- LIBS CDN - JS -->
+
+    @vite('resources/js/utils/messages/loadMessages.js')
 
     @yield('script')
     @stack('scripts')

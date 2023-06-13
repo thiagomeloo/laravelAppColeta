@@ -16,13 +16,14 @@ class Event extends Model
     use SoftDeletes;
 
     protected $table = "events";
-    protected $fillable = ["location_id", "type_material_id", "owner_id", "status_event_id", "title", "description", "frequency"];
+    protected $fillable = ["location_id", "type_material_id", "owner_id", "status_event_id", "type_action_id", "title", "description", "frequency"];
 
     protected $casts = [
         'location_id' => 'integer',
         'type_material_id' => 'integer',
         'owner_id' => 'integer',
         'status_event_id' => 'integer',
+        'type_action_id' => 'integer',
         'title' => 'string',
         'description' => 'string',
         'frequency' => FrequencyEnum::class,
@@ -59,5 +60,10 @@ class Event extends Model
     public function typeMaterial(): BelongsTo
     {
         return $this->belongsTo(TypeMaterial::class);
+    }
+
+    public function typeAction(): BelongsTo
+    {
+        return $this->belongsTo(TypeAction::class);
     }
 }

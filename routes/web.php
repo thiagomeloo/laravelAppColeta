@@ -5,6 +5,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventInteractionController;
 use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\MapController;
+use App\Repositories\Eloquent\EventRepository;
+use App\Services\TestService;
 use Illuminate\Support\Facades\Route;
 
 /* ------------------------------- ROUTE HOME ------------------------------- */
@@ -55,13 +57,13 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     /* --------------------------------- EVENTS --------------------------------- */
     Route::group(["prefix" => "events"], function () {
-        Route::get("/new", [EventController::class, 'create'])->name('dashboard.events.create');
-        Route::post("/publish", [EventController::class, 'store'])->name('dashboard.events.store');
-        Route::get("/{event}", [EventController::class, 'show'])->name('dashboard.events.show');
-
-        Route::middleware('can:update,event')->group(function () {
-            Route::get("/{event}/edit", [EventController::class, 'edit'])->name('dashboard.events.edit');
-            Route::put("/{event}/update", [EventController::class, 'update'])->name('dashboard.events.update');
+        Route::controller(EventController::class)->group(function () {
+            Route::get("/new", 'create')->name('dashboard.events.create');
+            Route::post("/publish", 'store')->name('dashboard.events.store');
+            Route::get("/view/{event}", 'show')->name('dashboard.events.show');
+            Route::get("/my-events", 'myEvents')->name('dashboard.events.myEvents');
+            Route::get("/edit/{event}", 'edit')->name('dashboard.events.edit');
+            Route::put("/update/{event}", 'update')->name('dashboard.events.update');
         });
 
         Route::get("/{event}/comments/new", [EventInteractionController::class, 'store'])->name('dashboard.events.eventInteractions.store');

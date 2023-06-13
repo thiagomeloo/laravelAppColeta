@@ -1,14 +1,14 @@
 <div class="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
     <div class="object-cover w-full h-64">
         <x-map width="w-full" height="h-64" latitude="{{ $latitude ?? '' }}" longitude="{{ $longitude ?? '' }}"
-            zoom="{{ $zoom ?? '' }}" markers="{{ $markers ?? '' }}" />
+            zoom="{{ $zoom ?? '' }}" typeEvent="{{ $typeEvent ?? '' }}" />
     </div>
     <div class="p-3">
         <div>
             <span class="text-xs font-medium text-lime-600 uppercase dark:text-lime-400">
                 {{ $typeEvent ?? '' }}
             </span>
-            <a href="{{ $linkView }}"
+            <a href="{{ $linkView ?? '#' }}"
                 class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
                 tabindex="0" role="link">
                 {{ $title ?? '' }}
