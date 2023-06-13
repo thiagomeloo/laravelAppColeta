@@ -15,7 +15,7 @@
     <!-- LIBS CDN - CSS -->
 
     <!-- Fontawesome Icons -->
-    <script src="https://kit.fontawesome.com/33256b8ce2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0a0b340480.js" crossorigin="anonymous"></script>
     <!-- Fontawesome Icons -->
 
     <!-- Leaflet -->
