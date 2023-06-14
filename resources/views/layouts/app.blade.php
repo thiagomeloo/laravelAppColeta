@@ -44,16 +44,60 @@
         <meta name="success-messages" content="{{ json_encode(session()->pull('success')) }}">
     @endif
 
+    <style>
+        .menu-open {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .menu-closed {
+                display: none;
+            }
+            .menu-open {
+                display: block;
+            }
+        }
+    </style>
+
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-900">
-    <header>
+<body class="bg-gray-200 dark:bg-gray-900 overflow-hidden">
+    {{-- <header>
         @yield('header')
     </header>
 
     <main>
         @yield('content')
-    </main>
+    </main> --}}
+
+    <div class="flex flex-col min-h-screen">
+        @include('components.template.header')
+
+        <div class="flex flex-grow">
+            <div class="flex-none w-1/4 md:w-1/6 menu-closed" id="sidebar">
+                @include('components.template.sidebar')
+            </div>
+            <div class="flex-grow">
+                @php
+                    $breadcrumbs = [
+                        ['url' => '/home', 'title' => 'Home'],
+                        ['url' => '/produtos', 'title' => 'Produtos'],
+                        ['url' => '/produtos/categoria', 'title' => 'Categoria'],
+                        ['url' => '#', 'title' => 'Produto']
+                    ];
+                @endphp
+
+                <div class="border border-gray-50">
+                    @include('components.template.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+                </div>
+
+                <div class="flex flex-col justify-between max-h-screen overflow-auto">
+                    @yield('content')
+
+                    @include('components.template.footer')
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- LIBS CDN - JS -->
 
@@ -67,6 +111,13 @@
 
     @yield('script')
     @stack('scripts')
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('menu-closed');
+            sidebar.classList.toggle('menu-open');
+        });
+    </script>
 </body>
 
 </html>

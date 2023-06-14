@@ -40,6 +40,7 @@ Route::group(['prefix' => 'auth'], function () {
 /*                              ROUTES DASHBOARD                              */
 /* -------------------------------------------------------------------------- */
 Route::group(['prefix' => 'dashboard'], function () {
+    Route::view('/', 'pages.dashboard.index')->name('dashboard.index');
 
     /* ----------------------------------- MAP ---------------------------------- */
     Route::group(["prefix" => "map"], function () {

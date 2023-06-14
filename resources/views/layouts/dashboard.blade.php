@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-navbar-dashboard>
+    {{-- <x-navbar-dashboard>
         <x-navbar-dashboard.header>
             <x-slot:contentLeft>
                 <x-navbar-dashboard.header.brand>
@@ -37,9 +37,9 @@
                 @yield('contentDashboard')
             </x-slot:content>
         </x-navbar-dashboard.body>
-    </x-navbar-dashboard>
+    </x-navbar-dashboard> --}}
 @endsection
 
 @push('scripts')
-    @vite('resources/js/components/blade/navbar-dashboard/index.js')
+    {{-- @vite('resources/js/components/blade/navbar-dashboard/index.js') --}}
 @endpush
