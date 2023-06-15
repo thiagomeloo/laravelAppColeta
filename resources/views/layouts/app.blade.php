@@ -76,23 +76,16 @@
             <div class="flex-none w-1/4 md:w-1/6 menu-closed" id="sidebar">
                 @include('components.template.sidebar')
             </div>
-            <div class="flex-grow">
-                @php
-                    $breadcrumbs = [
-                        ['url' => '/home', 'title' => 'Home'],
-                        ['url' => '/produtos', 'title' => 'Produtos'],
-                        ['url' => '/produtos/categoria', 'title' => 'Categoria'],
-                        ['url' => '#', 'title' => 'Produto']
-                    ];
-                @endphp
-
-                <div class="border border-gray-50">
-                    @include('components.template.breadcrumb', ['breadcrumbs' => $breadcrumbs])
+            <div class="flex-grow flex flex-col max-h-screen overflow-auto">
+                <div class="p-4 pb-0">
+                    @yield('breadcrumb')
                 </div>
 
-                <div class="flex flex-col justify-between max-h-screen overflow-auto">
+                <div class="flex-1 p-4">
                     @yield('content')
+                </div>
 
+                <div>
                     @include('components.template.footer')
                 </div>
             </div>
