@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('breadcrumb')
+@section('dashboard-breadcrumb')
     @php
         $breadcrumbs = [
             ['url' => '/home', 'text' => 'Home'],
@@ -10,11 +10,21 @@
             ['url' => '#', 'text' => 'Produto']
         ];
     @endphp
-    <x-breadcrumb :breadcrumbItems="$breadcrumbs" />
+    <x-template.breadcrumb :breadcrumbItems="$breadcrumbs" />
 @endsection
 
-@section('content')
+@section('dashboard-content')
     <main>
+        <h2 class="text-lg mb-4">Conteúdo Principal</h2>
+        <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
+        <h2 class="text-lg mb-4">Conteúdo Principal</h2>
+        <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
+        <h2 class="text-lg mb-4">Conteúdo Principal</h2>
+        <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
+        <h2 class="text-lg mb-4">Conteúdo Principal</h2>
+        <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
+        <h2 class="text-lg mb-4">Conteúdo Principal</h2>
+        <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
         <h2 class="text-lg mb-4">Conteúdo Principal</h2>
         <p>Lorem ipsum dolor sit aet, consectetur adipiscing elit. Duis venenatis lectus eu congue semper. Sed laoreet nisl velit, nec convallis nunc efficitur in.</p>
     </main>

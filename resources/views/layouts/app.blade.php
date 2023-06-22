@@ -24,7 +24,6 @@
 
     <!-- LIBS CDN - CSS -->
 
-
     @yield('css')
     @vite('resources/css/app.css')
 
@@ -44,52 +43,17 @@
         <meta name="success-messages" content="{{ json_encode(session()->pull('success')) }}">
     @endif
 
-    <style>
-        .menu-open {
-            display: none;
-        }
-        @media (max-width: 768px) {
-            .menu-closed {
-                display: none;
-            }
-            .menu-open {
-                display: block;
-            }
-        }
-    </style>
-
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900 overflow-hidden">
-    {{-- <header>
-        @yield('header')
-    </header>
-
-    <main>
-        @yield('content')
-    </main> --}}
-
     <div class="flex flex-col min-h-screen">
-        @include('components.template.header')
+        <header>
+            @yield('header')
+        </header>
 
-        <div class="flex flex-grow">
-            <div class="flex-none w-1/4 md:w-1/6 menu-closed" id="sidebar">
-                @include('components.template.sidebar')
-            </div>
-            <div class="flex-grow flex flex-col max-h-screen overflow-auto">
-                <div class="p-4 pb-0">
-                    @yield('breadcrumb')
-                </div>
-
-                <div class="flex-1 p-4">
-                    @yield('content')
-                </div>
-
-                <div>
-                    @include('components.template.footer')
-                </div>
-            </div>
-        </div>
+        <main>
+            @yield('content')
+        </main>
     </div>
 
     <!-- LIBS CDN - JS -->
@@ -104,13 +68,6 @@
 
     @yield('script')
     @stack('scripts')
-    <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            var sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('menu-closed');
-            sidebar.classList.toggle('menu-open');
-        });
-    </script>
 </body>
 
 </html>

@@ -1,7 +1,59 @@
 @extends('layouts.app')
 
+@section('css')
+    <style>
+        .menu-open {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .menu-closed {
+                display: none;
+            }
+            .menu-open {
+                display: block;
+            }
+        }
+    </style>
+@endsection
+
+@section('header')
+    @include('components.template.header')
+@endsection
+
 @section('content')
-    {{-- <x-navbar-dashboard>
+    <div class="flex flex-grow">
+        <div class="flex-none w-fit menu-closed" id="sidebar">
+            @include('components.template.sidebar')
+        </div>
+        <div class="flex-grow flex flex-col max-h-screen overflow-auto">
+            <div class="p-4 pb-0">
+                @yield('dashboard-breadcrumb')
+            </div>
+
+            <div class="flex-1 p-4">
+                @yield('dashboard-content')
+            </div>
+
+            <div>
+                @include('components.template.footer')
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('scripts')
+    {{-- @vite('resources/js/components/blade/navbar-dashboard/index.js') --}}
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('block');
+        });
+    </script>
+@endpush
+
+
+
+{{-- <x-navbar-dashboard>
         <x-navbar-dashboard.header>
             <x-slot:contentLeft>
                 <x-navbar-dashboard.header.brand>
@@ -12,7 +64,6 @@
                 </x-navbar-dashboard.header.brand>
             </x-slot:contentLeft>
             <x-slot:contentRight>
-                <x-navbar-dashboard.header.button text="Sair" />
             </x-slot:contentRight>
         </x-navbar-dashboard.header>
 
@@ -38,8 +89,3 @@
             </x-slot:content>
         </x-navbar-dashboard.body>
     </x-navbar-dashboard> --}}
-@endsection
-
-@push('scripts')
-    {{-- @vite('resources/js/components/blade/navbar-dashboard/index.js') --}}
-@endpush

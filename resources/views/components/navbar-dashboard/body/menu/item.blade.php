@@ -1,5 +1,5 @@
-<a href="{{ $url ?? "#" }}" class="flex items-center py-2 px-6 gap-2 {{ getThemeColors()?->primary?->link ?? '' }} ">
-    <i class="{{ $classIcon ?? '' }}"></i>
+<a href="{{ $url ?? "#" }}" class="flex items-center {{ getThemeColors()?->primary?->link ?? '' }} ">
+    <i class="{{ $classIcon ?? '' }} mr-2"></i>
     <span class="text-nav lg:block">
         {{ $text ?? ($slot ?? '') }}
     </span>

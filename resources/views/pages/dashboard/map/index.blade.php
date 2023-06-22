@@ -1,17 +1,16 @@
 @extends('layouts.dashboard')
 
-@section('breadcrumbDashboard')
-    <x-navbar-dashboard.body.breadcrumb>
-        <x-navbar-dashboard.body.breadcrumb.item>
-            <i class="fas fa-home"></i>
-        </x-navbar-dashboard.body.breadcrumb.item>
-        <x-navbar-dashboard.body.breadcrumb.item separator>
-            Mapa
-        </x-navbar-dashboard.body.breadcrumb.item>
-    </x-navbar-dashboard.body.breadcrumb>
+@section('dashboard-breadcrumb')
+    @php
+        $breadcrumbs = [
+            ['url' => route('dashboard.map.index'), 'text' => 'Home'],
+            ['text' => 'Mapa'],
+        ];
+    @endphp
+    <x-template.breadcrumb :breadcrumbItems="$breadcrumbs" />
 @endsection
 
-@section('contentDashboard')
+@section('dashboard-content')
     <div class="grid grid-cols-3 gap-4">
         <x-card class="col-span-1 " title="Filtro">
             <form class="flex items-center">

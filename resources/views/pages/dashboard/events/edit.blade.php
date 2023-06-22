@@ -1,7 +1,19 @@
 @extends('layouts.dashboard')
 
+@section('dashboard-breadcrumb')
+    @php
+        $breadcrumbs = [
+            ['url' => '/home', 'text' => 'Home'],
+            ['url' => '/produtos', 'text' => 'Produtos'],
+            ['url' => '/produtos/categoria', 'text' => 'Categoria'],
+            ['text' => 'Categoria'],
+            ['url' => '#', 'text' => 'Produto']
+        ];
+    @endphp
+    <x-template.breadcrumb :breadcrumbItems="$breadcrumbs" />
+@endsection
 
-@section('contentDashboard')
+@section('dashboard-content')@section('contentDashboard')
     <x-card>
         <form action="{{ route('dashboard.events.update', ['event' => $event->id]) }}" method="POST">
             @method('PUT')

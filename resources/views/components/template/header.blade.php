@@ -6,7 +6,7 @@
         </a>
     </x-navbar-dashboard.header.brand>
 
-    <div>
+    <div class="md:hidden">
         <button id="menu-toggle" class="focus:outline-none">
             <svg class="h-6 w-6 text-lime-600 hover:text-lime-800 dark:text-lime-400 dark:hover:text-lime-600" viewBox="0 0 24 24">
                 <path

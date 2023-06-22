@@ -1,22 +1,18 @@
 @extends('layouts.dashboard')
 
 
-@section('breadcrumbDashboard')
-    <x-navbar-dashboard.body.breadcrumb>
-        <x-navbar-dashboard.body.breadcrumb.item href="{{ route('dashboard.map.index') }}">
-            <i class="fas fa-home"></i>
-        </x-navbar-dashboard.body.breadcrumb.item>
-        <x-navbar-dashboard.body.breadcrumb.item>
-            Evento
-        </x-navbar-dashboard.body.breadcrumb.item>
-        <x-navbar-dashboard.body.breadcrumb.item separator>
-            Novo
-        </x-navbar-dashboard.body.breadcrumb.item>
-    </x-navbar-dashboard.body.breadcrumb>
+@section('dashboard-breadcrumb')
+    @php
+        $breadcrumbs = [
+            ['url' => route('dashboard.map.index'), 'text' => 'Home'],
+            ['url' => route('dashboard.explore.index'), 'text' => 'Eventos'],
+            ['text' => 'Novo'],
+        ];
+    @endphp
+    <x-template.breadcrumb :breadcrumbItems="$breadcrumbs" />
 @endsection
 
-
-@section('contentDashboard')
+@section('dashboard-content')
     <form action="{{ route('dashboard.events.store') }}" method="POST">
         @csrf
 
