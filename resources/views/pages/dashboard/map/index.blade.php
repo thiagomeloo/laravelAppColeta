@@ -24,13 +24,11 @@
                         <p class="block mb-2 text-base font-medium text-gray-900 dark:text-white text-start">
                             Material de Interesse
                         </p>
-                        <div class="grid grid-cols-4 gap-2 items-center">
-                            @for ($i = 0; $i < 10; $i++)
-                                <x-form.checkbox name="material" value="1" label="Papel" />
-                                <x-form.checkbox name="material" value="1" label="Vidro" />
-                                <x-form.checkbox name="material" value="1" label="Plástico" />
-                                <x-form.checkbox name="material" value="1" label="Outros" />
-                            @endfor
+                        <div class="grid grid-cols-3 sm:grid-cols-2 gap-2 place-items-stretch">
+                            @foreach ($typesMaterials as $typeMaterial)
+                                <x-form.checkbox name="material" value="{{ $typeMaterial->name }}"
+                                    label="{{ $typeMaterial->name }}" />
+                            @endforeach
                         </div>
                     </div>
                     <x-form.button class="mt-8">
@@ -42,10 +40,21 @@
 
         </x-card>
         <x-card class="col-span-2" title="Mapa">
-            <x-map width="w-full" height="h-4/5" id="map" />
+            <x-map width="w-full" height="h-5/6" class="" id="map"
+                markers="{{ json_encode(
+                    $events->map(function ($event) {
+                        return [
+                            'latitude' => $event->location->latitude,
+                            'longitude' => $event->location->longitude,
+                            'title' => $event->title,
+                            'description' => $event->description,
+                            'linkView' => route('dashboard.events.show', ['event' => $event->id]),
+                        ];
+                    }),
+                ) }}" />
         </x-card>
     </div>
-    <x-new-event.index />
+    <x-new-event />
 @endsection
 
 @push('scripts')

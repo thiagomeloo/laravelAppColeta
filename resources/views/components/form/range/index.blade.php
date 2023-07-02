@@ -27,7 +27,6 @@
 @push('scripts')
     <script>
         const range = document.getElementById("<?php echo $id; ?>");
-        console.log(range);
         range?.addEventListener('input', function(e) {
             range.nextElementSibling.querySelector('.range-sm-value').innerHTML = e.target.value;
         });

@@ -22,7 +22,7 @@
         @endforeach
     </div>
 
-    <x-new-event.index />
+    <x-new-event />
 @endsection
 
 

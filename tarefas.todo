@@ -8,28 +8,25 @@ Views:
 Backend:
     ☐ Service para checar se o usuário já existe
     ☐ Service para gerar notificação de evento
-
+    ☐ Fazer sistema de messagens de error
+    ☐ Fazer sistema de messagens de sucesso
 
 Cruds:
     ☐ Location
-        ☐ Model
+        ✔ Model @done(23-06-01 20:51)
         ✔ Repository @done(23-06-01 20:28)
-        ☐ Service
-            ☐ Create
-            ☐ Update
-            ☐ Delete
-            ☐ List
+        ✔ Service com CRUD usando o repository @done(23-06-01 21:04)
+        ☐ Controller
+        ☐ Requests
     ☐ Event
-        ☐ Model
+        ✔ Model @done(23-06-01 20:51)
         ✔ Repository @done(23-06-01 20:28)
-        ☐ Service
-            ☐ Create
-            ☐ Update
-            ☐ Delete
-            ☐ List
+        ✔ Service com CRUD usando o repository @done(23-06-01 21:08)
+        ☐ Controller
+        ☐ Requests
 
     ☐ EventInteraction
-        ☐ Model
+        ✔ Model @done(23-06-01 20:51)
         ✔ Repository @done(23-06-01 20:29)
         ☐ Service
             ☐ Create
@@ -38,7 +35,7 @@ Cruds:
             ☐ List
 
     ☐ EventInteractionResponse
-        ☐ Model
+        ✔ Model @done(23-06-01 20:52)
         ✔ Repository @done(23-06-01 20:30)
         ☐ Service
             ☐ Create
@@ -46,7 +43,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ User
-        ☐ Model
+        ✔ Model @done(23-06-01 20:52)
         ✔ Repository @done(23-06-01 20:31)
         ☐ Service
             ☐ Create
@@ -54,7 +51,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserAddress
-        ☐ Model
+        ✔ Model @done(23-06-01 20:52)
         ✔ Repository @done(23-06-01 20:32)
         ☐ Service
             ☐ Create
@@ -62,7 +59,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserNotification
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:32)
         ☐ Service
             ☐ Create
@@ -70,7 +67,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserNotificationEvent
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:33)
         ☐ Service
             ☐ Create
@@ -78,7 +75,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserNotificationPreference
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:34)
         ☐ Service
             ☐ Create
@@ -86,7 +83,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserNotificationPreferenceTypeMaterial
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:35)
         ☐ Service
             ☐ Create
@@ -94,7 +91,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserPreference
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:37)
         ☐ Service
             ☐ Create
@@ -102,7 +99,7 @@ Cruds:
             ☐ Delete
             ☐ List
     ☐ UserSocialMedia
-        ☐ Model
+        ✔ Model @done(23-06-01 20:57)
         ✔ Repository @done(23-06-01 20:40)
         ☐ Service
             ☐ Create

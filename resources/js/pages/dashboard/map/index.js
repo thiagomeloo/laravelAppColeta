@@ -13,6 +13,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         'zoom': objMap.zoom ?? '15',
     });
 
+
+    const markers = JSON.parse(document.getElementById('map')?.getAttribute('markers') ?? '[]');
+
+    markers.forEach(element => {
+        map.addMarker({
+            lat: element.latitude,
+            lng: element.longitude,
+            popup: element.title + ' - ' + element.description,
+            iconClass: 'fa-solid fa-location-dot fa-2x text-lime-700',
+            popupOpen: true,
+            size: [35, 35]
+        })
+    });
+
     map.addMarker({
         lat: objMap.latitude ?? latitude ?? '-6.4808',
         lng: objMap.longitude ?? longitude ?? '-35.4347',

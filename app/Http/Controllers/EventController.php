@@ -6,7 +6,6 @@ use App\Http\Requests\Event\CreateEventRequest;
 use App\Models\Event;
 use App\Models\TypeAction;
 use App\Models\TypeMaterial;
-use App\Services\Event\CreateEventService;
 use App\Services\Event\EditEventService;
 use App\Services\Event\EventService;
 use Illuminate\Http\Request;

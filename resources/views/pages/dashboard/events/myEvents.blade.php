@@ -17,4 +17,5 @@
 
 
 @section('contentDashboard')
+    <x-new-event />
 @endsection
